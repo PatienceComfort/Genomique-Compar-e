@@ -9,7 +9,7 @@ nom_output = sys.argv[2]
 
 fichier = open(file, "r") # Ouvrir le fichier de resultats blast
 output = open(nom_output+".txt", "w") # Ouvrir le fichier resultat de notre parsing et le créer s'il n'existe pas
-output.write("Voici le tableau récapitulant les données suivantes:\nquery_id\t subject_id\t iden_percen\t e_value\t \n" ) # Premiere ligne de notre resultat de parsing
+output.write("Voici le tableau récapitulant les données suivantes:\nquery_id\t subject_id\n" ) # Premiere ligne de notre resultat de parsing
 i = iter(fichier)
 
 ligne = fichier.readline() # Lire chaque ligne du fichier
@@ -26,10 +26,9 @@ for ligne in fichier: # Pour chaque ligne du fichier
         cons_query = list[0] # Prelever et conserver le query_id
         query_id = list[0]
         subject_id = list[1]
-        identity = list[2]
-        e_value = list[11]
+
         # Prelever les données qui nous interessent sur la ligne suivante
-        output.write(query_id+"\t"+subject_id +"\t"+identity+"\t"+e_value+"\t\n") # L'inscrire dans notre output
+        output.write(query_id+"\t"+subject_id +"\t\n") # L'inscrire dans notre output
         if list[0]==cons_query: # Comparer list[0] à notre valeur conservee de query_id
             next(i) # Si ca correspond, passer a la ligne suivante
         else:
