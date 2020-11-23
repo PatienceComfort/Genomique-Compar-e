@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
-#L'objectif est de parser un fichier afin de recuperer uniquement les best hits (c'est à dire e-value le plus faible) dans un sens
+#L'objectif est de parser un fichier afin de recuperer uniquement les best hits (la première ligne suivant un #) dans un sens
 import sys
 
 
-file = sys.argv[1]
-nom_output = sys.argv[2]
+file = sys.argv[1] #le 2eme argument correspond au fichier de blast output
+nom_output = sys.argv[2] #le troisième argument correspond au nom du fichier où seront stockés nos résultats
 
 fichier = open(file, "r") # Ouvrir le fichier de resultats blast
 output = open(nom_output+".txt", "w") # Ouvrir le fichier resultat de notre parsing et le créer s'il n'existe pas
