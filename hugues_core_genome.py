@@ -89,7 +89,7 @@ def orthologue(dico) :
             count = 0
 
             for name2 in dico["name"] :
-                if name2 not in name :
+                if name2 not in name :#pour vérifier qu'on a pas déjà testé ce couple
                     for gene2 in dico[name2]["query"] :
                         
                         if gene1 in dico[name2][gene2]["subject"] and gene2 in dico[name1][gene1]["subject"] :
