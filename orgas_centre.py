@@ -55,16 +55,16 @@ print(len(my_array3))#866444
 print(len(my_array4))#1080582
 print(len(my_array5))#1288200
 
-#peut on creer un dataset de nos 6 arrays vu qu'ils ont des longueurs différentes
-#le problème est de superposer les courbes, j'ai pas encore trouvé comment faire ça
-################################################################################
-sns.displot(my_array0, kind = "kde", col = "red", legend = TRUE)
-sns.displot(my_array1, kind = "kde", col = "blue", legend = TRUE)
+data = [my_array0, my_array1, my_array2, my_array3, my_array4, my_array5]
+labels = ["SarbMEGA","SbayMEGA", "ScerMEGA", "SkudMEGA","SmikMEGA", "SparMEGA"]
+for array in data:
+    sns.distplot(array, hist = False, kde = True, kde_kws = {'linewidth':1} )
+
+plt.legend(prop={'size':10},title = "arrays")
+plt.title("Centered organisms")
 plt.xlabel("evalue")
-plt.title("Centré par organisme")
-################################################################################
-#seaborn density trouver comment les superposer avec des couleurs différentes
-#sns.displot(my_array,  kind="kde")#fig =
-#plt.xlabel("evalue")#fig.set
-#plt.title("CDS VS CDS")
-#plt.savefig("cds_cds")#fig.savefig
+plt.ylabel("density")
+plt.savefig("thelasttry2.png")
+
+###############################################################################
+############FINAL WORDS######################################################
