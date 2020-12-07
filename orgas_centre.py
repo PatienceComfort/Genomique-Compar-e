@@ -56,11 +56,11 @@ print(len(my_array4))#1080582
 print(len(my_array5))#1288200
 
 data = [my_array0, my_array1, my_array2, my_array3, my_array4, my_array5]
-labels = ["SarbMEGA","SbayMEGA", "ScerMEGA", "SkudMEGA","SmikMEGA", "SparMEGA"]
+#labels = ["SarbMEGA","SbayMEGA", "ScerMEGA", "SkudMEGA","SmikMEGA", "SparMEGA"]
 for array in data:
     sns.distplot(array, hist = False, kde = True, kde_kws = {'linewidth':1} )
 
-plt.legend(prop={'size':10},title = "arrays")
+plt.legend(labels=["SarbMEGA","SbayMEGA","ScerMEGA""SkudMEGA", "SmikMEGA","SparMEGA"],prop={'size':10},title = "Organisme centré")
 plt.title("Centered organisms")
 plt.xlabel("evalue")
 plt.ylabel("density")
