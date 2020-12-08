@@ -7,6 +7,7 @@ import seaborn as sns
 
 dir = sys.argv[1]
 f_out = open('evalue_cds.txt', 'w')
+
 def evalue_besthit(file, liste_evalue, f_out) :
     fichier = open(file, "r") # Ouvrir le fichier de resultats blast
 
@@ -23,10 +24,11 @@ def evalue_besthit(file, liste_evalue, f_out) :
 
                 if len(list_subject) == 3 :#Si request = cds
                     liste_evalue.append(float(list[10]))
-                    f_out.write(float([list[10]]+'\n')
-    return(liste_evalue)
+                    f_out.write(str([list[10]])+'\n')
+
     fichier.close()
-    f_out.close()
+
+    return(liste_evalue)
 
 
 path=os.listdir(dir)
@@ -34,10 +36,10 @@ liste_evalue = []
 
 for file in path :
     #print(file)
-    my_array = np.asarray(evalue_besthit(dir+"/"+file, liste_evalue)).astype(np.float)
+    my_array = np.asarray(evalue_besthit(dir+"/"+file, liste_evalue, f_out)).astype(np.float)
     #my_array = np.my_array(liste_evalue)
 print(len(my_array))
-
+f_out.close()
 #plt.xlim([min(liste_evalue), max(liste_evalue)])
 #plt.plot(my_array, bin = 10,range = (my_array.min(), my_array.max()) )#range = (my_array.min(), my_array.max())
 #plt.ylabel('Fréquence')
